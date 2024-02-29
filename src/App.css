@@ -11,6 +11,14 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+
+  .FTCGameBoard{
+  }
+
+  .Robot{
+
+
+  }
 }
 
 .App-header {
@@ -24,6 +32,33 @@
   color: white;
 }
 
+.left-box{
+    background-color: #3b3b3b;
+    height: 1360px;
+    width: 700px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: center;
+    font-size: calc(8px + 2vmin);
+}
+
+.right-box{
+    background-color: #3b3b3b;
+    height: 1360px;
+    width: 700px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: center;
+    font-size: calc(8px + 2vmin);
+}
+
+
 .App-link {
   color: #61dafb;
 }
@@ -36,3 +71,4 @@
     transform: rotate(360deg);
   }
 }
+
