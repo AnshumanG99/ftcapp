@@ -6,9 +6,9 @@ import { addListeners } from './moveable.js';
 import { addRobots, removeRobots } from './addRobot.js'
 
 function App() {
-  useEffect(() => {
-    addListeners(); // Call addListeners function when component mounts
-  }, []);
+    useEffect(() => {
+        addListeners(); // Call addListeners function when component mounts
+    }, []);
 
   return (
     <div className="App">

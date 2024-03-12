@@ -9,33 +9,37 @@
   }
 
   .FTCGameBoard{
-
+  position: absolute;
+  left: 30vw;
+  top: 10vh;
+  height: 80vmin;
+  width: 80vmin;
   }
 
   .Robot{
   position: absolute;
-  height: 200px;
-  width: 150px;
+  height: 15vh;
+  width: 12vh;
   }
 
   #bluerobot1{
-  top: 520px;
-  left: 870px;
+  top: 35.5%;
+  left: 30.5%;
   }
 
   #bluerobot2{
-  top: 880px;
-  left: 870px;
+  top: 62%;
+  left: 30.5%;
   }
 
   #redrobot1{
-  top: 520px;
-  right: 870px;
+  top: 35.5%;
+  left: 63.5%;
   }
 
   #redrobot2{
-  top: 880px;
-  right: 870px;
+  top: 62%;
+  left: 63.5%;
   }
 
 
@@ -47,34 +51,34 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(5vmin);
   color: white;
 }
 
 #left-box{
     background-color: #3b3b3b;
-    height: 1360px;
-    width: 700px;
+    height: 100vh;
+    width: 25vw;
     position: absolute;
     left: 0px;
     top: 0px;
     align-items: center;
     justify-content: center;
     flex-direction: center;
-    font-size: calc(8px + 2vmin);
+    font-size: calc(4vmin);
 }
 
 #right-box{
     background-color: #3b3b3b;
-    height: 1360px;
-    width: 700px;
+    height: 100vh;
+    width: 25vw;
     position: absolute;
     right: 0px;
     top: 0px;
     align-items: center;
     justify-content: center;
     flex-direction: center;
-    font-size: calc(8px + 2vmin);
+    font-size: calc(4vmin);
 }
 
 
@@ -82,14 +86,14 @@
 .BlueButtons {
   background-color: #e1ecf4;
   border-radius: 3px;
-  border: 1px solid #7aa7c7;
+  border: .1vmin solid #7aa7c7;
   box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
   box-sizing: border-box;
   color: #39739d;
   cursor: pointer;
   display: inline-block;
   font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
-  font-size: 13px;
+  font-size: 2vmin;
   font-weight: 400;
   line-height: 1.15385;
   margin: 0;
@@ -123,16 +127,16 @@
 
 
 .RedButtons {
-  background-color: #e1ecf4;
+  background-color: #FFCCCB;
   border-radius: 3px;
-  border: 1px solid #8B0000;
+  border: .1vmin solid #8B0000;
  /*box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
   box-sizing: border-box;*/
   color: #8B0000;
   cursor: pointer;
   display: inline-block;
   font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
-  font-size: 13px;
+  font-size: 2vmin;
   font-weight: 400;
   line-height: 1.15385;
   margin: 0;
