@@ -7,7 +7,7 @@ const ctx = canvas.getContext('2d');
 
 
 export function addDrawListeners(color){
-    currentColor = color;
+    currentColor = 'white';
     const container = document.createElement('div');
     const gameBoard = document.querySelector('.FTCGameBoard');
     gameBoard.parentNode.insertBefore(container, gameBoard.nextSibling);
