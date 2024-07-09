@@ -13,8 +13,16 @@
   position: absolute;
   left: 30vw;
   top: 10vh;
-  height: 80vmin;
-  width: 80vmin;
+  height: 75vmin;
+  width: 75vmin;
+  }
+
+  .FTCBackdrop{
+  position: absolute;
+  right: 2vw;
+  top: 10vh;
+  height: 75vmin;
+  width: 50vmin;
   }
 
   .Robot{
@@ -43,6 +51,33 @@
   left: 63.5%;
   }
 
+  #pencil{
+  height: 3vmin;
+  }
+
+  #eraser{
+  height: 3vmin;
+  }
+
+#orientation-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#orientation-overlay .content {
+  font-size: 2em;
+  margin: 20px;
+}
 
 }
 
@@ -52,11 +87,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: calc(5vmin);
+  font-size: 5vmin;
   color: white;
 }
 
-#left-box{
+#right-box{
     background-color: #3b3b3b;
     height: 100vh;
     width: 25vw;
@@ -66,31 +101,24 @@
     align-items: center;
     justify-content: center;
     flex-direction: center;
-    font-size: calc(4vmin);
-}
-
-#right-box{
-    background-color: #3b3b3b;
-    height: 100vh;
-    width: 25vw;
-    position: absolute;
-    right: 0px;
-    top: 0px;
-    align-items: center;
-    justify-content: center;
-    flex-direction: center;
-    font-size: calc(4vmin);
+    text-align: left;
+    font-size: 2.5vmin;
 }
 
 
+h2{
+    text-align:center;
+}
 
-.BlueButtons {
-  background-color: #e1ecf4;
-  border-radius: 3px;
-  border: .1vmin solid #7aa7c7;
-  box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
-  box-sizing: border-box;
-  color: #39739d;
+h4{
+    text-align: center;
+}
+
+p {
+    margin-left: 3vmin;
+}
+
+button {
   cursor: pointer;
   display: inline-block;
   font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
@@ -108,10 +136,44 @@
   touch-action: manipulation;
   vertical-align: baseline;
   white-space: nowrap;
+  margin-left: 15vmin;
+  font-size: 3vmin;
+  border-radius: 3px;
+  height: 5vmin;
+
 }
 
-.BlueButtons:hover,
-.BlueButtons:focus {
+#redAddRobot, #blueAddRobot, #purpleAddPixel, #greenAddPixel, #yellowAddPixel, #whiteAddPixel{
+  margin-left: 1vmin;
+}
+
+#Cwhite {
+  margin-left: 6vmin;
+}
+
+#Cred {
+  margin-left: 2vmin;
+}
+
+#Cblue {
+  margin-left: 2vmin;
+}
+
+#draw {
+  margin-left: 23vmin;
+}
+
+#delete{
+  margin-left: 27vmin;
+}
+
+.BlueButtons {
+  background-color: #d4ebf2;
+  border: .1vmin solid #7aa7c7;
+  color: #39739d;
+}
+
+.BlueButtons:hover, .BlueButtons:focus {
   background-color: #b3d3ea;
   color: #2c5777;
 }
@@ -129,32 +191,12 @@
 
 .RedButtons {
   background-color: #FFCCCB;
-  border-radius: 3px;
   border: .1vmin solid #8B0000;
- /*box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
-  box-sizing: border-box;*/
   color: #8B0000;
-  cursor: pointer;
-  display: inline-block;
-  font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
-  font-size: 2vmin;
-  font-weight: 400;
-  line-height: 1.15385;
-  margin: 0;
-  outline: none;
-  padding: 8px .8em;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: baseline;
-  white-space: nowrap;
+
 }
 
-.RedButtons:hover,
-.RedButtons:focus {
+.RedButtons:hover, .RedButtons:focus {
   background-color: #FF7F7F;
   color: #8B0000;
 }
@@ -168,3 +210,95 @@
   box-shadow: none;
   color: #8B0000;
 }
+
+
+.PurpleButtons {
+  background-color: #EDE3FF;
+  border: .1vmin solid #800080;
+  color: #800080;
+
+}
+
+.PurpleButtons:hover, .PurpleButtons:focus {
+  background-color: #D0BDF0;
+  color: #800080;
+}
+
+.PurpleButtons:focus {
+  box-shadow: 0 0 0 4px rgba(160, 32, 240, .15);
+}
+
+.PurpleButtons:active {
+  background-color: #AF9FC9;
+  box-shadow: none;
+  color: #800080;
+}
+
+.GreenButtons {
+  background-color: #b3f3b2;
+  border: .1vmin solid #008000;
+  color: #008000;
+
+}
+
+.GreenButtons:hover, .GreenButtons:focus {
+  background-color: #81ec7f;
+  color: #008000;
+}
+
+.GreenButtons:focus {
+  box-shadow: 0 0 0 4px rgba(0, 255, 0, .15);
+}
+
+.GreenButtons:active {
+  background-color: #4ee44c;
+  box-shadow: none;
+  color: #008000;
+}
+
+.YellowButtons {
+  background-color: #f6f5c2;
+  border: .1vmin solid #FFFF00;
+  color: #000000;
+
+}
+
+.YellowButtons:hover, .YellowButtons:focus {
+  background-color: #f1efa0;
+  color: #000000;
+}
+
+.YellowButtons:focus {
+  box-shadow: 0 0 0 4px rgba(255, 255, 0, .15);
+}
+
+.YellowButtons:active {
+  background-color: #ece97e;
+  box-shadow: none;
+  color: #000000;
+}
+
+
+.Tools {
+  background-color: #FFFFFF;
+  border: .1vmin solid #000000;
+  color: #000000;
+
+}
+
+.Tools:hover, .Tools:focus {
+  background-color: #F0F0F0;
+  color: #000000;
+}
+
+.Tools:focus {
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, .15);
+}
+
+.Tools:active {
+  background-color: #D3D3D3;
+  box-shadow: none;
+  color: #000000;
+}
+
+

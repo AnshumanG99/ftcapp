@@ -14,7 +14,7 @@ export function addListeners() {
 
         const div = e.target;
 
-        if (div.classList.contains('Robot')){
+        if (div.classList.contains('Robot') || div.classList.contains('pixels')){
             currentDraggedElementId = div.id;
 
             const rect = div.getBoundingClientRect();
@@ -25,7 +25,8 @@ export function addListeners() {
             window.addEventListener('mouseup', endMove, true);
             window.addEventListener('touchmove', divMove, true);
             window.addEventListener('touchend', endMove, true);
-
+            console.log(clientX);
+            console.log(clientY);
         }
     }
 
@@ -34,6 +35,7 @@ export function addListeners() {
         window.removeEventListener('mouseup', endMove, true);
         window.removeEventListener('touchmove', divMove, true);
         window.removeEventListener('touchend', endMove, true);
+
 
     }
 
@@ -59,6 +61,15 @@ export function addListeners() {
     robots.forEach(robot => {
         robot.addEventListener('mousedown', startMove, false);
         robot.addEventListener('touchstart', startMove, false);
+        robot.classList.add('draggable');
+
+    });
+
+    const pixels = document.querySelectorAll(".pixels");
+    pixels.forEach(pixel => {
+        pixel.addEventListener('mousedown', startMove, false);
+        pixel.addEventListener('touchstart', startMove, false);
+        pixel.classList.add('draggable');
 
     });
 }

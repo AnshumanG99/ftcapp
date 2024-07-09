@@ -12,7 +12,6 @@ export function addRobots(alliancecolor){
 
 
         const robotID = alliancecolor + "robot" + blue;
-        console.log(robotID);
         const robot = document.getElementById(robotID);
 
         robot.style.visibility = 'visible';
@@ -31,7 +30,6 @@ export function addRobots(alliancecolor){
             red++;
         }
         const robotID = alliancecolor + "robot" + red;
-        console.log(robotID);
         const robot = document.getElementById(robotID);
 
         robot.style.visibility = 'visible';
@@ -81,7 +79,6 @@ export function removeRobots(alliancecolor){
             blue = 1;
         }
         const robotID = alliancecolor + "robot" + blue;
-        console.log(robotID);
         const robot = document.getElementById(robotID);
 
         robot.style.visibility = 'hidden';
@@ -96,7 +93,6 @@ export function removeRobots(alliancecolor){
             red = 1;
         }
         const robotID = alliancecolor + "robot" + red;
-        console.log(robotID);
         const robot = document.getElementById(robotID);
 
         robot.style.visibility = 'hidden';

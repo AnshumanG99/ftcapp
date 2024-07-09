@@ -5,9 +5,13 @@ let currentColor = '';
 const canvas = document.createElement('canvas');
 const ctx = canvas.getContext('2d');
 
+export function changeColor(color){
+    currentColor = '';
+    currentColor = color;
+}
 
 export function addDrawListeners(color){
-    currentColor = 'white';
+    currentColor = color;
     const container = document.createElement('div');
     const gameBoard = document.querySelector('.FTCGameBoard');
     gameBoard.parentNode.insertBefore(container, gameBoard.nextSibling);
@@ -18,19 +22,42 @@ export function addDrawListeners(color){
     canvas.style.top = '10vh';
     canvas.style.left = '30vw';
     container.appendChild(canvas);
-    window.addEventListener('mousedown', startDrawing);
-    window.addEventListener('mousemove', draw);
-    window.addEventListener('mouseup', stopDrawing);
 
+    canvas.addEventListener('mousedown', startDrawing);
+    canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('mouseup', stopDrawing);
+    canvas.addEventListener('mouseleave', stopDrawing);
+
+    canvas.addEventListener('touchstart', startDrawing, {passive:false});
+    canvas.addEventListener('touchmove', draw, {passive:false});
+    canvas.addEventListener('touchend', stopDrawing);
+    canvas.addEventListener('touchcancel', stopDrawing);
 }
 
+function getPointerPosition(e){
+    const rect = canvas.getBoundingClientRect();
+    if (e.touches) {
+        return {
+            x: e.touches[0].clientX - rect.left,
+            y: e.touches[0].clientY - rect.top
+        };
+    } else {
+        return {
+            x: e.clientX - rect.left,
+            y: e.clientY - rect.top
+        };
+    }
+}
 
 function startDrawing(e){
     isDrawing = true;
-    const rect = canvas.getBoundingClientRect();
-    startX = e.clientX -rect.left;
-    startY = e.clientY - rect.top;
+    const position = getPointerPosition(e);
+    startX = position.x;
+    startY =  position.y;
 
+    if (e.touches){
+        e.preventDefault();
+    }
 }
 
 function draw(e){
@@ -38,23 +65,27 @@ function draw(e){
     if (!isDrawing){
         return;
     }
+
     e.stopPropagation();
     e.preventDefault();
-    const rect = canvas.getBoundingClientRect();
+    const position = getPointerPosition(e);
     ctx.strokeStyle = currentColor;
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
     ctx.lineWidth = 2;
     ctx.beginPath();
     ctx.moveTo(startX, startY);
-    startX = e.clientX - rect.left;
-    startY = e.clientY - rect.top;
+    startX = position.x;
+    startY = position.y;
     ctx.lineTo(startX, startY);
     ctx.stroke();
 }
 
-function stopDrawing(){
+function stopDrawing(e){
     isDrawing = false;
+    if (e.touches){
+        e.preventDefault();
+    }
 }
 
 export function deleteLine(){
