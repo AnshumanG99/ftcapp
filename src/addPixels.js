@@ -99,7 +99,7 @@ export function deletePixels(pixelColor){
     }
     totalPixel--;
     if (totalPixel <= 0){
-        totalPixel = 0;
+        totalPixel = -1;
     }
 
     const pixeltoDelete = document.getElementById(pixelID);

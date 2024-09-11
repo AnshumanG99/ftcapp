@@ -5,34 +5,23 @@ import robot from './assets/robot.png';
 import eraser from './assets/eraser.png';
 import pencil from './assets/pencil.png'
 import './App.css';
-import {addListeners} from './moveable.js';
+import {addListeners } from './moveable.js';
 import {addRobots, removeRobots} from './addRobot.js';
 import {addPixels, deletePixels} from './addPixels.js';
 import {addDrawListeners, deleteLine, changeColor} from './draw.js';
-import axios from 'axios';
 
 
 function App() {
-  const[userCount, setUserCount]  = useState(0);
 
   useEffect(() => {
-      addListeners();
-      incrementUserCount();
-      orientationChange();
-      window.addEventListener('resize', orientationChange);
-      return () => {
-        window.removeEventListener('resize', orientationChange);
-      }
+    addListeners();
+    orientationChange();
+    window.addEventListener('resize', orientationChange);
+    return () => {
+      window.removeEventListener('resize', orientationChange);
+    }
   }, []);
 
-  const incrementUserCount = async () => {
-      try{
-          const response = await axios.get('http://localhost:5000/increment-user-count');
-          setUserCount(response.data.count);
-      } catch (error) {
-          console.error('Error fetching user count:', error);
-      }
-  }
 
   const orientationChange = () => {
     const overlay = document.getElementById('orientation-overlay');
@@ -50,15 +39,15 @@ function App() {
       </div>
       <header className="App-header"> FTC Game Planner </header>
         <img src={ftcfield} className="FTCGameBoard" alt="board" draggable="false"/>
-        <img src={robot} className="Robot" id="bluerobot1" draggable="false" />
-        <img src={robot} className="Robot" id="bluerobot2" draggable="false" />
-        <img src={robot} className="Robot" id="redrobot1" draggable="false" />
-        <img src={robot} className="Robot" id="redrobot2" draggable="false" />
+        <img src={robot} className="Robot" id="bluerobot1" alt="Blue Robot 1" draggable="false" />
+        <img src={robot} className="Robot" id="bluerobot2" alt="Blue Robot 2" draggable="false" />
+        <img src={robot} className="Robot" id="redrobot1" alt="Red Robot 1" draggable="false" />
+        <img src={robot} className="Robot" id="redrobot2" alt="Red Robot 2" draggable="false" />
 
         <img src={ftcbackdrop} className="FTCBackdrop" alt="backdrop" draggable="false"/>
 
 
-        <div id="right-box">
+        <div id="settingsbox">
           <h4> Robot Settings </h4>
             <p>Red Robots
               <button type="button" className = "RedButtons" id = "redRemoveRobot" onClick = {() => removeRobots('red')}> - </button>
@@ -101,7 +90,7 @@ function App() {
 
             <h4> Tools </h4>
             <p> Draw Tool
-              <button type="button" className = "Tools" id = "draw" onClick = {() => addDrawListeners('white')}> <img src = {pencil} id = "pencil" ></img> </button>
+              <button type="button" className = "Tools" id = "draw" onClick = {() => addDrawListeners('white')}> <img src = {pencil} id = "pencil" alt ="" ></img> </button>
               <br></br>
               <br></br>
 
@@ -113,7 +102,7 @@ function App() {
               <br></br>
 
             Eraser
-              <button type="button" className = "Tools" id = "delete" onClick = {() => deleteLine()}> <img src = {eraser} id = "eraser" ></img> </button>
+              <button type="button" className = "Tools" id = "delete" onClick = {() => deleteLine()}> <img src = {eraser} id = "eraser"  alt =""></img> </button>
             </p>
         </div>
     </div>

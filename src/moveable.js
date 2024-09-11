@@ -25,19 +25,32 @@ export function addListeners() {
             window.addEventListener('mouseup', endMove, true);
             window.addEventListener('touchmove', divMove, true);
             window.addEventListener('touchend', endMove, true);
-            console.log(clientX);
-            console.log(clientY);
+
         }
     }
 
-    function endMove(e){
+    function endMove(e) {
         window.removeEventListener('mousemove', divMove, true);
         window.removeEventListener('mouseup', endMove, true);
         window.removeEventListener('touchmove', divMove, true);
         window.removeEventListener('touchend', endMove, true);
 
+        const div = document.getElementById(currentDraggedElementId);
+        if (div) {
+            const divRect = div.getBoundingClientRect();
 
-    }
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+
+            const leftPercentage = (divRect.left / viewportWidth) * 100;
+            const topPercentage = (divRect.top / viewportHeight) * 100;
+
+            div.style.left = Math.max(0, Math.min(100, leftPercentage)) + '%';
+            div.style.top = Math.max(0, Math.min(100, topPercentage)) + '%';
+            }
+        }
+
+
 
     function divMove(e){
         e.preventDefault();
