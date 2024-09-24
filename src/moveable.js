@@ -14,7 +14,7 @@ export function addListeners() {
 
         const div = e.target;
 
-        if (div.classList.contains('Robot') || div.classList.contains('pixels')){
+        if (div.classList.contains('Robot') || div.classList.contains('item')){
             currentDraggedElementId = div.id;
 
             const rect = div.getBoundingClientRect();
@@ -78,8 +78,8 @@ export function addListeners() {
 
     });
 
-    const pixels = document.querySelectorAll(".pixels");
-    pixels.forEach(pixel => {
+    const item = document.querySelectorAll(".item");
+    item.forEach(pixel => {
         pixel.addEventListener('mousedown', startMove, false);
         pixel.addEventListener('touchstart', startMove, false);
         pixel.classList.add('draggable');

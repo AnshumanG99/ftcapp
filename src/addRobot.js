@@ -5,7 +5,7 @@ let red = 2;
 export function addRobots(alliancecolor){
 
 
-    if (alliancecolor == 'blue'){
+    if (alliancecolor === 'blue'){
         if (blue < 2){
             blue++;
         }
@@ -15,17 +15,17 @@ export function addRobots(alliancecolor){
         const robot = document.getElementById(robotID);
 
         robot.style.visibility = 'visible';
-        robot.style.left = '30.5%';
-        robot.style.top = '62%';
+        robot.style.left = '77%';
+        robot.style.top = '65.5%';
 
-        if (blue == 1){
-            robot.style.top = '35.5%';
+        if (blue === 1){
+            robot.style.top = '37.5%';
         }
 
     }
 
 
-    if (alliancecolor == 'red'){
+    if (alliancecolor === 'red'){
         if (red < 2){
             red++;
         }
@@ -33,11 +33,11 @@ export function addRobots(alliancecolor){
         const robot = document.getElementById(robotID);
 
         robot.style.visibility = 'visible';
-        robot.style.left = '63.5%';
-        robot.style.top = '62%';
+        robot.style.left = '40.8%';
+        robot.style.top = '51.5%';
 
-        if (red == 1){
-            robot.style.top = '35.5%';
+        if (red === 1){
+            robot.style.top = '23.5%';
         }
 
 
@@ -74,8 +74,8 @@ export function addRobots(alliancecolor){
 export function removeRobots(alliancecolor){
 
 
-    if (alliancecolor == 'blue'){
-        if (blue == 0){
+    if (alliancecolor === 'blue'){
+        if (blue === 0){
             blue = 1;
         }
         const robotID = alliancecolor + "robot" + blue;
@@ -88,8 +88,8 @@ export function removeRobots(alliancecolor){
 
     }
 
-    if (alliancecolor == 'red'){
-        if (red == 0){
+    if (alliancecolor === 'red'){
+        if (red === 0){
             red = 1;
         }
         const robotID = alliancecolor + "robot" + red;

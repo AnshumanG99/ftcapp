@@ -20,7 +20,7 @@ export function addDrawListeners(color){
     canvas.height = gameBoard.offsetHeight;
     canvas.style.position = 'absolute';
     canvas.style.top = '10vh';
-    canvas.style.left = '30vw';
+    canvas.style.left = '40vw';
     container.appendChild(canvas);
 
     canvas.addEventListener('mousedown', startDrawing);

@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   color: white;
+  background-color: #282c34;
 }
 
 
@@ -11,12 +12,13 @@
 
   .FTCGameBoard{
   position: absolute;
-  left: 30vw;
+  left: 40vw;
   top: 10vh;
-  height: 75vmin;
-  width: 75vmin;
+  height: 85min;
+  width: 85vmin;
   }
 
+/*
   .FTCBackdrop{
   position: absolute;
   right: 2vw;
@@ -24,6 +26,7 @@
   height: 75vmin;
   width: 50vmin;
   }
+*/
 
   .Robot{
   position: absolute;
@@ -32,23 +35,24 @@
   }
 
   #bluerobot1{
-  top: 35.5%;
-  left: 30.5%;
+  top: 37.5%;
+  left: 77%;
   }
 
   #bluerobot2{
-  top: 62%;
-  left: 30.5%;
+  top: 65.5%;
+  left: 77%;
   }
 
   #redrobot1{
-  top: 35.5%;
-  left: 63.5%;
+  top: 23.5%;
+  left: 40.8%;
   }
 
   #redrobot2{
-  top: 62%;
-  left: 63.5%;
+  top: 51.5%;
+  left: 40.8%;
+
   }
 
   #pencil{
@@ -82,19 +86,16 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   font-size: 5vmin;
   color: white;
+  margin-left: 25vw;
 }
 
 #settingsbox{
     background-color: #3b3b3b;
     height: 100vh;
-    width: 25vw;
+    width: 35vw;
     position: absolute;
     left: 0px;
     top: 0px;
@@ -136,19 +137,51 @@ button {
   touch-action: manipulation;
   vertical-align: baseline;
   white-space: nowrap;
-  margin-left: 15vmin;
+  margin-left: 34vmin;
   font-size: 3vmin;
   border-radius: 3px;
   height: 5vmin;
 
 }
 
-#redAddRobot, #blueAddRobot, #purpleAddPixel, #greenAddPixel, #yellowAddPixel, #whiteAddPixel{
+#redAddRobot, #blueAddRobot, #purpleAdd, #greenAdd, #yellowAdd, #whiteAdd{
   margin-left: 1vmin;
 }
 
+#redRemoveRobot{
+  margin-left: 34.9vmin;
+}
+
+#blueRemoveRobot{
+  margin-left: 34.2vmin;
+}
+
+#purpleRemove{
+  margin-left: 31.9vmin;
+}
+
+#greenRemove{
+  margin-left: 31.2vmin;
+}
+
+#yellowRemove{
+  margin-left: 29vmin;
+}
+
+#whiteRemove{
+  margin-left: 43vmin;
+}
+
+#draw {
+  margin-left: 42.5vmin;
+}
+
+#delete{
+  margin-left: 46.7vmin;
+}
+
 #Cwhite {
-  margin-left: 6vmin;
+  margin-left: 26vmin;
 }
 
 #Cred {
@@ -159,13 +192,6 @@ button {
   margin-left: 2vmin;
 }
 
-#draw {
-  margin-left: 23vmin;
-}
-
-#delete{
-  margin-left: 27vmin;
-}
 
 .BlueButtons {
   background-color: #d4ebf2;

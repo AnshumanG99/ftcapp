@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import ftcfield from './assets/ftcfield.png';
-import ftcbackdrop from './assets/ftcbackdrop.png';
+//import ftcbackdrop from './assets/ftcbackdrop.png';
 import robot from './assets/robot.png';
 import eraser from './assets/eraser.png';
 import pencil from './assets/pencil.png'
 import './App.css';
 import {addListeners } from './moveable.js';
 import {addRobots, removeRobots} from './addRobot.js';
-import {addPixels, deletePixels} from './addPixels.js';
+import {addItem, deleteItem} from './addItems.js';
 import {addDrawListeners, deleteLine, changeColor} from './draw.js';
 
 
@@ -44,12 +44,11 @@ function App() {
         <img src={robot} className="Robot" id="redrobot1" alt="Red Robot 1" draggable="false" />
         <img src={robot} className="Robot" id="redrobot2" alt="Red Robot 2" draggable="false" />
 
-        <img src={ftcbackdrop} className="FTCBackdrop" alt="backdrop" draggable="false"/>
-
 
         <div id="settingsbox">
-          <h4> Robot Settings </h4>
-            <p>Red Robots
+
+            <p><h4> Robot Settings </h4>
+              Red Robots
               <button type="button" className = "RedButtons" id = "redRemoveRobot" onClick = {() => removeRobots('red')}> - </button>
               <button type="button" className = "RedButtons" id = "redAddRobot" onClick = {() => addRobots('red')}> + </button>
               <br></br>
@@ -61,35 +60,36 @@ function App() {
               <br></br>
 
 
-            <h4> Pixel Settings </h4>
-            Purple Pixels
-              <button type="button" className = "PurpleButtons" id = "purpleRemovePixel" onClick = {() => deletePixels('purple')}> - </button>
-              <button type="button" className = "PurpleButtons" id = "purpleAddPixel" onClick = {() => addPixels('purple')}> + </button>
+            <h4> Game Element Settings </h4>
+            Red Specimen
+              <button type="button" className = "PurpleButtons" id = "purpleRemove" onClick = {() => deleteItem('purple')}> - </button>
+              <button type="button" className = "PurpleButtons" id = "purpleAdd" onClick = {() => addItem('purple')}> + </button>
               <br></br>
               <br></br>
 
-            Green Pixels
-              <button type="button" className = "GreenButtons" id = "greenRemovePixel" onClick = {() => deletePixels('green')}> - </button>
-              <button type="button" className = "GreenButtons" id = "greenAddPixel" onClick = {() => addPixels('green')}> + </button>
+            Blue Specimen
+              <button type="button" className = "GreenButtons" id = "greenRemove" onClick = {() => deleteItem('green')}> - </button>
+              <button type="button" className = "GreenButtons" id = "greenAdd" onClick = {() => addItem('green')}> + </button>
               <br></br>
               <br></br>
 
-            Yellow Pixels
-              <button type="button" className = "YellowButtons" id = "yellowRemovePixel" onClick = {() => deletePixels('yellow')}> - </button>
-              <button type="button" className = "YellowButtons" id = "yellowAddPixel" onClick = {() => addPixels('yellow')}> + </button>
+            Yellow Specimen
+              <button type="button" className = "YellowButtons" id = "yellowRemove" onClick = {() => deleteItem('yellow')}> - </button>
+              <button type="button" className = "YellowButtons" id = "yellowAdd" onClick = {() => addItem('yellow')}> + </button>
               <br></br>
               <br></br>
 
-            White Pixels
-              <button type="button" className = "Tools" id = "whiteRemovePixel" onClick = {() => deletePixels('white')}> - </button>
-              <button type="button" className = "Tools" id = "whiteAddPixel" onClick = {() => addPixels('white')}> + </button>
+            Clip
+              <button type="button" className = "Tools" id = "whiteRemove" onClick = {() => deleteItem('white')}> - </button>
+              <button type="button" className = "Tools" id = "whiteAdd" onClick = {() => addItem('white')}> + </button>
               <br></br>
 
             </p>
 
 
-            <h4> Tools </h4>
-            <p> Draw Tool
+
+            <p><h4> Tools </h4>
+              Draw Tool
               <button type="button" className = "Tools" id = "draw" onClick = {() => addDrawListeners('white')}> <img src = {pencil} id = "pencil" alt ="" ></img> </button>
               <br></br>
               <br></br>
