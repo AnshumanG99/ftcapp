@@ -9,7 +9,7 @@ import {addListeners } from './moveable.js';
 import {addRobots, removeRobots} from './addRobot.js';
 import {addItem, deleteItem} from './addItems.js';
 import {addDrawListeners, deleteLine, changeColor} from './draw.js';
-
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
 
