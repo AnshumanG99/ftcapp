@@ -86,6 +86,7 @@ function App() {
 
             </p>
 
+            <Analytics />
 
 
             <p><h4> Tools </h4>
