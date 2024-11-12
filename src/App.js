@@ -13,26 +13,38 @@ import { Analytics } from "@vercel/analytics/react"
 
 function App() {
 
-  useEffect(() => {
-    addListeners();
-    orientationChange();
-    window.addEventListener('resize', orientationChange);
-    return () => {
-      window.removeEventListener('resize', orientationChange);
+    const [showHelp, setShowHelp] = useState(false);
+    const [isAboutOpen, setIsAboutOpen] = useState(false);
+
+
+    useEffect(() => {
+        addListeners();
+        orientationChange();
+        window.addEventListener('resize', orientationChange);
+        return () => {
+            window.removeEventListener('resize', orientationChange);
+        }
+    }, []);
+
+
+    const orientationChange = () => {
+        const overlay = document.getElementById('orientation-overlay');
+        if (window.innerHeight > window.innerWidth){
+            overlay.style.display = 'flex';
+        } else{
+            overlay.style.display = 'none';
+        }
     }
-  }, []);
 
+     const toggleHelpPopup = () => {
+         setShowHelp(!showHelp);
+     };
 
-  const orientationChange = () => {
-    const overlay = document.getElementById('orientation-overlay');
-    if (window.innerHeight > window.innerWidth){
-        overlay.style.display = 'flex';
-    } else{
-        overlay.style.display = 'none';
-    }
-  }
+     const toggleAboutPopup = () => {
+         setIsAboutOpen(!isAboutOpen);
+     };
 
-  return (
+    return (
     <div className="App">
       <div id = "orientation-overlay">
         <div className = "content"> Please rotate your device to landscape mode. </div>
@@ -61,19 +73,19 @@ function App() {
 
 
             <h4> Game Element Settings </h4>
-            Red Specimen
+            Red Sample
               <button type="button" className = "PurpleButtons" id = "purpleRemove" onClick = {() => deleteItem('purple')}> - </button>
               <button type="button" className = "PurpleButtons" id = "purpleAdd" onClick = {() => addItem('purple')}> + </button>
               <br></br>
               <br></br>
 
-            Blue Specimen
+            Blue Sample
               <button type="button" className = "GreenButtons" id = "greenRemove" onClick = {() => deleteItem('green')}> - </button>
               <button type="button" className = "GreenButtons" id = "greenAdd" onClick = {() => addItem('green')}> + </button>
               <br></br>
               <br></br>
 
-            Yellow Specimen
+            Yellow Sample
               <button type="button" className = "YellowButtons" id = "yellowRemove" onClick = {() => deleteItem('yellow')}> - </button>
               <button type="button" className = "YellowButtons" id = "yellowAdd" onClick = {() => addItem('yellow')}> + </button>
               <br></br>
@@ -86,7 +98,6 @@ function App() {
 
             </p>
 
-            <Analytics />
 
 
             <p><h4> Tools </h4>
@@ -106,6 +117,41 @@ function App() {
               <button type="button" className = "Tools" id = "delete" onClick = {() => deleteLine()}> <img src = {eraser} id = "eraser"  alt =""></img> </button>
             </p>
         </div>
+
+
+      <button className="help-button" onClick={toggleHelpPopup}>?</button>
+      <button className="about-button" onClick={toggleAboutPopup}>i</button>
+
+      {showHelp && (
+        <div className="help-popup">
+          <div className="help-content">
+            <h3>How to Use the FTC Game Planner</h3>
+            <p>1. Use the Robot Settings to add or remove red and blue robots on the field.</p>
+            <p>2. Use the Game Element Settings to add or remove game elements such as samples and clips.</p>
+            <p>3. The Tools section allows you to use a pencil for drawing paths, select colors, and use the eraser to delete lines.</p>
+            <p>4. Move and draw elements across the field to plan out games. </p>
+
+            <p>If you find any issues or have suggestions, feel free to report them using the form linked in the information tab. Thanks!</p>
+
+            <button onClick={toggleHelpPopup}>Close</button>
+          </div>
+        </div>
+      )}
+
+      {isAboutOpen && (
+        <div className="help-popup">
+          <div className="help-content">
+            <h3>About This App</h3>
+            <p>This FTC Game Planner app is designed to help teams strategize and prepare for competitions by simulating game layouts and scenarios.</p>
+            <p>During competitions, teams can utilize this resource to plan their games and strategize with alliances</p>
+            <p>If you find any issues with the app, feel free to fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSdp33OZ8TGAhM5JNLJoi-SYTjGm42ZYc6X7WOmrPG90YlEQKg/viewform?usp=sf_link" target="_blank" rel="noopener noreferrer"> this </a> form to report it, or provide any feedback or suggestions you have for the app</p>
+            <button onClick={() => setIsAboutOpen(false)}>Close</button>
+          </div>
+        </div>
+      )}
+
+      <Analytics />
+
     </div>
   );
 }
