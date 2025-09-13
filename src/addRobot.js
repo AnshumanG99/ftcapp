@@ -15,11 +15,12 @@ export function addRobots(alliancecolor){
         const robot = document.getElementById(robotID);
 
         robot.style.visibility = 'visible';
-        robot.style.left = '77%';
-        robot.style.top = '65.5%';
+        robot.style.left = '55%';
+        robot.style.top = '81%';
 
         if (blue === 1){
-            robot.style.top = '37.5%';
+            robot.style.top = '16.5%';
+            robot.style.left = '45%'
         }
 
     }
@@ -33,11 +34,12 @@ export function addRobots(alliancecolor){
         const robot = document.getElementById(robotID);
 
         robot.style.visibility = 'visible';
-        robot.style.left = '40.8%';
-        robot.style.top = '51.5%';
+        robot.style.left = '62%';
+        robot.style.top = '81%';
 
         if (red === 1){
-            robot.style.top = '23.5%';
+            robot.style.top = '16.5%';
+            robot.style.left = '70%'
         }
 
 

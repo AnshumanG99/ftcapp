@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ftcfield from './assets/ftcfield.png';
-//import ftcbackdrop from './assets/ftcbackdrop.png';
+import ftcfield from './assets/FTCDecodeField2025.png';
 import robot from './assets/robot.png';
 import eraser from './assets/eraser.png';
 import pencil from './assets/pencil.png'
@@ -49,7 +48,7 @@ function App() {
       <div id = "orientation-overlay">
         <div className = "content"> Please rotate your device to landscape mode. </div>
       </div>
-      <header className="App-header"> FTC Game Planner </header>
+      <header className="App-header"> FTC Game Planner 2025: Decode</header>
         <img src={ftcfield} className="FTCGameBoard" alt="board" draggable="false"/>
         <img src={robot} className="Robot" id="bluerobot1" alt="Blue Robot 1" draggable="false" />
         <img src={robot} className="Robot" id="bluerobot2" alt="Blue Robot 2" draggable="false" />
@@ -85,16 +84,6 @@ function App() {
               <br></br>
               <br></br>
 
-            Yellow Sample
-              <button type="button" className = "YellowButtons" id = "yellowRemove" onClick = {() => deleteItem('yellow')}> - </button>
-              <button type="button" className = "YellowButtons" id = "yellowAdd" onClick = {() => addItem('yellow')}> + </button>
-              <br></br>
-              <br></br>
-
-            Clip
-              <button type="button" className = "Tools" id = "whiteRemove" onClick = {() => deleteItem('white')}> - </button>
-              <button type="button" className = "Tools" id = "whiteAdd" onClick = {() => addItem('white')}> + </button>
-              <br></br>
 
             </p>
 
