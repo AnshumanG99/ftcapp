@@ -72,13 +72,13 @@ function App() {
 
 
             <h4> Game Element Settings </h4>
-            Red Sample
+            Purple Artifact
               <button type="button" className = "PurpleButtons" id = "purpleRemove" onClick = {() => deleteItem('purple')}> - </button>
               <button type="button" className = "PurpleButtons" id = "purpleAdd" onClick = {() => addItem('purple')}> + </button>
               <br></br>
               <br></br>
 
-            Blue Sample
+            Green Artifact
               <button type="button" className = "GreenButtons" id = "greenRemove" onClick = {() => deleteItem('green')}> - </button>
               <button type="button" className = "GreenButtons" id = "greenAdd" onClick = {() => addItem('green')}> + </button>
               <br></br>
